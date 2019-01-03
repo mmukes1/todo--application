@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project is build to display the todo application on Create-ractapp and Json Placeholder 
+
 
 ## Available Scripts
 
