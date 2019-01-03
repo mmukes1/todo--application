@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import TodoList from "./components/Todo/TodoList";
+import Todo from "./components/Todo/Todo";
+import TodoTitle from "./components.Todo/TodoTitle";
 
 const style = {
   container: {
@@ -34,36 +37,21 @@ class App extends Component {
       id: Date.now()
     };
     this.setState({
-      tasks: [newTask, ...this.state.tasks]
+      tasks: [newTask, ...this.state.tasks],
+      task: ""
     });
   }
 
   render() {
-    console.log(this.state.task);
+    const { task, tasks } = this.state;
     return (
       <div style={style.container}>
-        <h1>Todo Application</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label style={style.Label}>Add your task here</label>
-          <br />
-          <input
-            style={style.Textfield}
-            type="text"
-            value={this.state.task}
-            onChange={this.handlChange}
-          />
-          <br />
-          <button style={style.Button}> Add Task </button>
-        </form>
+        <TodoTitle title={"Todo Application"} />
+        <Todo handleSubmit={this.handleSubmit} styles={style} />
         <hr />
-        <ul>
-          {this.state.tasks.map(el => {
-            return <li key={el.id}>{el.task}</li>;
-          })}
-        </ul>
+        <TodoList task={this.state.tasks} />
       </div>
     );
   }
 }
-
 export default App;
